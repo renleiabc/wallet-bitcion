@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-07-28 17:31:16
  * @LastEditors: abc
- * @LastEditTime: 2021-08-06 11:02:15
+ * @LastEditTime: 2021-08-09 14:10:17
  * @Description: 私钥
 -->
 <template>
@@ -83,7 +83,6 @@
     let privateKey = '0c28fca386c7a227600b2fe50b7cae11ec86d3bf1fbe471be89827e19d72aa1d';
     // 对私钥编码:
     const encoded = bitcoin.ECPair.fromPrivateKey(Buffer.from(key, 'hex')).toWIF();
-    console.log(keyss.toWIF());
        </pre
       >
     </div>
