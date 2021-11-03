@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-08 19:52:32
  * @LastEditors: abc
- * @LastEditTime: 2021-11-03 11:07:05
+ * @LastEditTime: 2021-11-03 11:22:55
  * @Description: 转账
 -->
 <template>
@@ -14,7 +14,7 @@
   <div style="margin-top: 30px"></div>
   <button @click="sendTransfer">转账</button>
   <button @click="query">查询</button>
-  <button @click="sendTrans">转账112</button>
+  <button @click="sendTrans">转账1</button>
 </template>
 <script>
 const Web3 = require('web3');
