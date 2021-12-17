@@ -218,31 +218,58 @@ export default {
 
       request(options, callback);
     };
+    const amount = web3.utils.toHex(web3.utils.toWei('0.0001', 'ether'));
+    console.log(web3.utils.toWei('0.0001', 'ether'));
+    console.log(web3.utils.toWei('40', 'gwei'));
+    web3.eth.getGasPrice().then((res) => {
+      console.log(res);
+    });
     const sendTrans = () => {
       // 转账数量，单位 Wei，web3.utils.toWei 可将 1 个 Ether 转换为 Wei
-      const amount = web3.utils.toHex(web3.utils.toWei('0.0001', 'ether'));
+
       var privKey = new Buffer.from(fromPrivate, 'hex');
+
       web3.eth
         .getTransactionCount(fromAddress)
         .then(async (count) => {
+          console.log(count);
           //creating raw tranaction
+          const gasPrice = await web3.eth.getGasPrice();
+          console.log(gasPrice);
           const txParams = {
-            chainId: 42,
             from: fromAddress,
-            gasPrice: web3.utils.toHex(1 * 1e9),
-            gasLimit: web3.utils.toHex(210000),
+            // gasPrice: web3.utils.toHex(web3.utils.toWei('5', 'gwei')),
+            gasPrice: web3.utils.toHex(gasPrice),
+            gasLimit: web3.utils.toHex(21000),
             to: toAddress,
             value: amount,
             nonce: web3.utils.toHex(count)
+            // nonce: web3.utils.toHex(count)
           };
           //creating tranaction via ethereumjs-tx
           const tx = new Tx.Transaction(txParams, { chain: 42 });
           //signing transaction with private key
           tx.sign(privKey);
           //sending transacton via web3 module
-          web3.eth
-            .sendSignedTransaction('0x' + tx.serialize().toString('hex'))
-            .on('transactionHash', console.log);
+          web3.eth.sendSignedTransaction(
+            '0x' + tx.serialize().toString('hex'),
+            (err, hash) => {
+              if (!err) {
+                console.log(hash);
+                web3.eth.getTransactionReceipt(hash, (error, result) => {
+                  console.log(result);
+                  /*  if (result.status == 1 && result.logs.length != 0) {
+                    console.log('true Transaction mined and execution succeed');
+                  } else {
+                    console.log('false Transaction mined but execution failed');
+                  } */
+                });
+              } else {
+                console.log(err);
+              }
+            }
+          );
+          // .on('transactionHash', console.log);
         })
         .catch((err) => {
           console.log(err);
