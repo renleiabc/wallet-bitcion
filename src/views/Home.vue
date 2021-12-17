@@ -74,6 +74,7 @@ export default {
     );
     const words = bip39.generateMnemonic(160);
     console.log(words);
+    // 比特币
     /*  const words = bip39.generateMnemonic(160);
     console.log(words, '++++++++'); */
     // const words1 = bip39.generateMnemonic(160);
