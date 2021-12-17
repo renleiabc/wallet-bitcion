@@ -72,6 +72,8 @@ export default {
       'Nothing here %cHi Cat %cHey Bear', // Console Message
       'color: red'
     );
+    const words = bip39.generateMnemonic(160);
+    console.log(words);
     /*  const words = bip39.generateMnemonic(160);
     console.log(words, '++++++++'); */
     // const words1 = bip39.generateMnemonic(160);
