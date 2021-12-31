@@ -12,7 +12,8 @@
         <router-link to="/">首页</router-link> |
         <router-link to="/transfer">转账</router-link> |
         <router-link to="/record">记录</router-link> |
-        <router-link to="/uni">UNI 代币转账</router-link>
+        <router-link to="/uni">UNI 代币转账</router-link>|
+        <router-link to="/web3">Web3 方法汇总</router-link>
       </div>
     </el-header>
     <el-main>

@@ -135,6 +135,15 @@ const routes = [
     meta: {
       title: 'UNI 代币转账'
     }
+  },
+  {
+    path: '/web3',
+    name: 'web3',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/web3.vue'),
+    meta: {
+      title: 'web3 方法汇总'
+    }
   }
 ];
 

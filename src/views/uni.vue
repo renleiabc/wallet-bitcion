@@ -15,7 +15,6 @@
 // ####  注意  #### : 目前使用人工轉換儲值手續費，建議在幣價好的時候一次換匯才划算
 
 const uniJSON = require('../plugins/abi/uni.json');
-console.log(uniJSON);
 const Web3 = require('web3');
 const request = require('request');
 const Tx = require('ethereumjs-tx').Transaction;
@@ -28,6 +27,8 @@ var privateKey =
   '92ec6d980cc3f6fa9669281ae92463d04e100ef7b0646b4747b76e757146ea81';
 
 const web3 = new Web3(new Web3.providers.HttpProvider(testUrl));
+// (请自己生成，切勿直接复制）;
+// (请自己生成，切勿直接复制）;
 // USDT contract 連結 https://etherscan.io/address/0xdac17f958d2ee523a2206206994597c13d831ec7#code
 // const ContractAddress = '0xdac17f958d2ee523a2206206994597c13d831ec7';
 const ContractAddress = '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984';

@@ -34,7 +34,11 @@ export default {
     // eslint-disable-next-line no-unused-vars
     const mainUrl =
       'https://mainnet.infura.io/v3/864b6f681de34c9a8ef2270575ad4592';
-    var web3 = new Web3(Web3.givenProvider || testUrl);
+    //var web3 = new Web3(Web3.givenProvider || testUrl);
+    // eslint-disable-next-line no-unused-vars
+    const binance = 'https://http-testnet.hecochain.com';
+    const testnet = 'https://data-seed-prebsc-1-s1.binance.org:8545';
+    const web3 = new Web3(new Web3.providers.HttpProvider(testnet));
     // 生成具有公私钥的账户对象
     //entropy - String (可选): 用于增加混淆度的随机字符串，至少 32 字符长。如果未设定将使用 randomhex 生成一个随机字符串
     const entropy = '123456';
@@ -47,6 +51,12 @@ export default {
       '92ec6d980cc3f6fa9669281ae92463d04e100ef7b0646b4747b76e757146ea81';
     const toAddress = '0xDb3734369631d36067D7334c6bB947a23Be9b588';
     web3.eth.getBlockNumber().then((res) => {
+      console.log(res);
+    });
+    web3.eth.net.getId().then((res) => {
+      console.log(res);
+    });
+    web3.eth.net.getNetworkType().then((res) => {
       console.log(res);
     });
     web3.eth

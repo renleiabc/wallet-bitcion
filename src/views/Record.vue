@@ -69,6 +69,14 @@ const loading = ref(false);
 const handleGetTransList = (data = objData) => {
   loading.value = true;
   result.arr = [];
+  request.get(
+    'https://ibax.io/api/newsEventsLink',
+
+    (err, req, tmp) => {
+      const res = JSON.parse(tmp);
+      console.log(res);
+    }
+  );
   request.post(
     'https://api-kovan.etherscan.io/api',
     { form: data },
